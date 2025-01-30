@@ -39,7 +39,7 @@ async def get_user(user_id: str):
 
 
 @router.put("/user/{user_id}/{table}")
-async def update_score(user_id: str, table: str, score: int):
+async def update_score(user_id: str, table: str, score: int = 0):
     if table not in ["recursion", "queue"]:
         raise HTTPException(status_code=400, detail="Invalid table name")
     try:
