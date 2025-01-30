@@ -35,6 +35,16 @@ def create_tables():
             )
             '''
         )
+
+        conn.execute(
+            '''
+            CREATE TABLE IF NOT EXISTS videos (
+                id INTEGER PRIMARY KEY,
+                title TEXT,
+                url TEXT
+            )
+            '''
+        )
         conn.commit()
     except Exception as e:
         conn.rollback()
