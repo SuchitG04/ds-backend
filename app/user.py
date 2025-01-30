@@ -16,9 +16,12 @@ async def get_all_users():
 
 
 @router.post("/user/{user_id}")
-async def create_user(user_id: str):
+async def create_user(user_id: str, user_name: str):
     try:
-        conn.execute("INSERT OR IGNORE INTO users (user_id) VALUES (?)", (user_id,))
+        conn.execute(
+            "INSERT OR IGNORE INTO users (user_id, user_name) VALUES (?, ?)",
+            (user_id, user_name),
+        )
         conn.commit()
     except DatabaseError as e:
         raise HTTPException(status_code=500, detail=f"Error in DB: {str(e)}")

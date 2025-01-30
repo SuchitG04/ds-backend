@@ -9,6 +9,7 @@ def create_tables():
             """
             CREATE TABLE IF NOT EXISTS users (
                 user_id TEXT PRIMARY KEY,
+                user_name TEXT,
                 queue_score INTEGER DEFAULT 0,
                 recursion_score INTEGER DEFAULT 0
             )
