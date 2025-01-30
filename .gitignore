@@ -1,2 +1,7 @@
 __pycache__/
 *.db
+.python-version
+pyproject.toml
+uv.lock
+.venv
+.gitignore
