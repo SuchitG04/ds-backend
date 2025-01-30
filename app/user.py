@@ -8,7 +8,7 @@ router = APIRouter()
 @router.post("/user/{user_id}")
 async def create_user(user_id: str):
     try:
-        conn.execute("INSERT INTO users (user_id) VALUES (?)", (user_id,))
+        conn.execute("INSERT OR IGNORE INTO users (user_id) VALUES (?)", (user_id,))
         conn.commit()
     except DatabaseError as e:
         raise HTTPException(status_code=500, detail=f"Error in DB: {str(e)}")
