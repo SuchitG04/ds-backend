@@ -20,7 +20,7 @@ def create_tables():
                 id INTEGER PRIMARY KEY,
                 question TEXT,
                 options TEXT, -- JSON type
-                answer TEXT
+                answer INTEGER
             )
             '''
         )
@@ -31,7 +31,7 @@ def create_tables():
                 id INTEGER PRIMARY KEY,
                 question TEXT,
                 options TEXT, -- JSON type
-                answer TEXT
+                answer INTEGER
             )
             '''
         )

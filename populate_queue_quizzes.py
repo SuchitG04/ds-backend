@@ -7,52 +7,52 @@ def main():
         {
             "question": "Which of the following is the correct operation to insert an element in a queue?",
             "options": ["enqueue", "dequeue", "push", "pop"],
-            "answer": "enqueue"
+            "answer": 0
         },
         {
             "question": "Which of the following is the correct operation to remove an element from a queue?",
             "options": ["enqueue", "dequeue", "push", "pop"],
-            "answer": "dequeue"
+            "answer": 1
         },
         {
             "question": "Which of the following best describes a queue data structure?",
             "options": ["Last-in first-out", "First-in first-out", "First-in last-out", "None of the above"],
-            "answer": "First-in first-out"
+            "answer": 1
         },
         {
             "question": "What is the time complexity of an enqueue operation in a queue implemented using an array (assuming no resizing overhead)?",
             "options": ["O(1)", "O(log n)", "O(n)", "O(n^2)"],
-            "answer": "O(1)"
+            "answer": 0
         },
         {
             "question": "What operation returns the element at the front of the queue without removing it?",
             "options": ["peek", "front", "top", "pop"],
-            "answer": "peek"
+            "answer": 0
         },
         {
             "question": "Which queue variation allows insertion at one end and deletion from both ends?",
             "options": ["Priority queue", "Deque (Double-ended queue)", "Circular queue", "Multi-level queue"],
-            "answer": "Deque (Double-ended queue)"
+            "answer": 1
         },
         {
             "question": "When a queue is implemented using an array, which problem can occur even if the array isn't fully occupied?",
             "options": ["Overflow", "Underflow", "Dequeue error", "False overflow"],
-            "answer": "False overflow"
+            "answer": 3
         },
         {
             "question": "What is a common application of queues in operating systems?",
             "options": ["Function call management", "Process scheduling", "Recursion stack", "Memory allocation"],
-            "answer": "Process scheduling"
+            "answer": 1
         },
         {
             "question": "Which queue data structure ensures that the element with the highest priority is always served first?",
             "options": ["Circular queue", "Priority queue", "Multi-queue", "None of the above"],
-            "answer": "Priority queue"
+            "answer": 1
         },
         {
             "question": "What is the time complexity of checking if a queue is empty?",
             "options": ["O(1)", "O(log n)", "O(n)", "O(n^2)"],
-            "answer": "O(1)"
+            "answer": 0
         }
     ]
 
@@ -66,7 +66,7 @@ def main():
             id INTEGER PRIMARY KEY,
             question TEXT,
             options TEXT,  -- stored as JSON
-            answer TEXT
+            answer INTEGER
         )
     ''')
 

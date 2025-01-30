@@ -12,7 +12,7 @@ def main():
                 "A function with a single return statement",
                 "A function with multiple parameters"
             ],
-            "answer": "A function that calls itself"
+            "answer": 0
         },
         {
             "question": "What is a base case in recursion?",
@@ -22,12 +22,12 @@ def main():
                 "A case that triggers an error",
                 "A case that uses a loop"
             ],
-            "answer": "A case that stops the recursion"
+            "answer": 1
         },
         {
             "question": "Which data structure is used by most programming languages to implement function calls and recursion?",
             "options": ["Queue", "Stack", "Array", "Tree"],
-            "answer": "Stack"
+            "answer": 1
         },
         {
             "question": "Which of the following is an advantage of using recursion?",
@@ -37,7 +37,7 @@ def main():
                 "It makes code run faster in all cases",
                 "It prevents stack overflow"
             ],
-            "answer": "It can simplify the code and make it more readable"
+            "answer": 1
         },
         {
             "question": "Which of the following problems is often solved using recursion?",
@@ -47,7 +47,7 @@ def main():
                 "Finding the shortest path in a graph with Dijkstra's algorithm",
                 "Implementing a queue"
             ],
-            "answer": "Calculating the factorial of a number"
+            "answer": 1
         },
         {
             "question": "In recursion, what happens if the base case is never reached?",
@@ -57,7 +57,7 @@ def main():
                 "The program runs into an infinite recursive call leading to a stack overflow",
                 "The program will still execute, but produce a wrong answer"
             ],
-            "answer": "The program runs into an infinite recursive call leading to a stack overflow"
+            "answer": 2
         },
         {
             "question": "Which term describes reducing a problem into smaller subproblems that resemble the original?",
@@ -67,7 +67,7 @@ def main():
                 "Divide and conquer",
                 "Recurrence"
             ],
-            "answer": "Divide and conquer"
+            "answer": 2
         },
         {
             "question": "What is a recursive function’s general structure in most programming languages?",
@@ -77,7 +77,7 @@ def main():
                 "A function with only a while loop",
                 "A function that returns a string"
             ],
-            "answer": "A function calling itself and a condition to stop calling itself"
+            "answer": 1
         },
         {
             "question": "Which of the following is generally not a typical use case for recursion?",
@@ -87,12 +87,12 @@ def main():
                 "Implementing factorial",
                 "Looping over a static array in a straightforward manner"
             ],
-            "answer": "Looping over a static array in a straightforward manner"
+            "answer": 3
         },
         {
             "question": "When converting a recursive function into an iterative one, which data structure is commonly used to simulate recursion’s behavior?",
             "options": ["Queue", "Linked list", "Stack", "Heap"],
-            "answer": "Stack"
+            "answer": 2
         }
     ]
 
@@ -106,7 +106,7 @@ def main():
             id INTEGER PRIMARY KEY,
             question TEXT,
             options TEXT,  -- stored as JSON
-            answer TEXT
+            answer INTEGER
         )
     ''')
 
