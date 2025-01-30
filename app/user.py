@@ -5,6 +5,16 @@ from fastapi import HTTPException, APIRouter
 router = APIRouter()
 
 
+@router.get("/users")
+async def get_all_users():
+    try:
+        res = conn.execute("SELECT * FROM users")
+        users = res.fetchall()
+        return users
+    except DatabaseError as d:
+        raise HTTPException(status_code=500, detail=f"Error in DB: {str(d)}")
+
+
 @router.post("/user/{user_id}")
 async def create_user(user_id: str):
     try:
