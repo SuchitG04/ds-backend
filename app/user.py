@@ -33,10 +33,31 @@ async def update_user_scores(user_id: str, queue_score: int, recursion_score: in
     try:
         conn.execute(
             "UPDATE users SET queue_score = ?, recursion_score = ? WHERE user_id = ?",
-            (queue_score, recursion_score, user_id)
+            (queue_score, recursion_score, user_id),
         )
         conn.commit()
     except DatabaseError as e:
         raise HTTPException(status_code=500, detail=f"Error in DB: {str(e)}")
 
 
+@router.put("/user/{user_id}")
+async def update_user_scores_queue_score(user_id: str, queue_score: int):
+    try:
+        conn.execute(
+            "UPDATE users SET queue_score = ? WHERE user_id = ?", (queue_score, user_id)
+        )
+        conn.commit()
+    except DatabaseError as e:
+        raise HTTPException(status_code=500, detail=f"Error in DB: {str(e)}")
+
+
+@router.put("/user/{user_id}")
+async def update_user_scores_recursion_score(user_id: str, recursion_score: int):
+    try:
+        conn.execute(
+            "UPDATE users SET recursion_score = ? WHERE user_id = ?",
+            (recursion_score, user_id),
+        )
+        conn.commit()
+    except DatabaseError as e:
+        raise HTTPException(status_code=500, detail=f"Error in DB: {str(e)}")
