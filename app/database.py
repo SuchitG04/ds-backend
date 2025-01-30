@@ -6,29 +6,28 @@ def create_tables():
     try:
         conn.execute(
             '''
-            CREATE TABLE IF NOT EXISTS leaderboard (
-                id INTEGER PRIMARY KEY,
-                name TEXT,
-                score INTEGER
-            )
-            '''
-        )
-
-        conn.execute(
-            '''
             CREATE TABLE IF NOT EXISTS users (
-                id INTEGER PRIMARY KEY,
-                name TEXT,
-                email TEXT,
-                leaderboard_id INTEGER,
-                FOREIGN KEY(leaderboard_id) REFERENCES leaderboard(id)
+                user_id TEXT PRIMARY KEY,
+                queue_score INTEGER NULL,
+                recursion_score INTEGER NULL
             )
             '''
         )
 
         conn.execute(
             '''
-            CREATE TABLE IF NOT EXISTS stack_quizzes (
+            CREATE TABLE IF NOT EXISTS queue_quizzes (
+                id INTEGER PRIMARY KEY,
+                question TEXT,
+                options TEXT, -- JSON type
+                answer TEXT
+            )
+            '''
+        )
+
+        conn.execute(
+            '''
+            CREATE TABLE IF NOT EXISTS recursion_quizzes (
                 id INTEGER PRIMARY KEY,
                 question TEXT,
                 options TEXT, -- JSON type
@@ -41,6 +40,3 @@ def create_tables():
         conn.rollback()
         raise e
 
-
-def initialize_database():
-    create_tables()
