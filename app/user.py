@@ -31,11 +31,12 @@ async def get_user(user_id: str):
 @router.put("/user/{user_id}/{table}")
 async def update_score(user_id: str, table: str, score: int):
     if table not in ["recursion", "queue"]:
-        raise HTTPException("fuck you")
+        raise HTTPException(status_code=400, detail="Invalid table name")
     try:
+        query = f"UPDATE users SET {table}_score = ? WHERE user_id = ?"
         conn.execute(
-            "UPDATE ? SET ?_score = ? WHERE user_id = ?",
-            (table, table, score, user_id),
+            query,
+            (score, user_id),
         )
     except DatabaseError as e:
         raise HTTPException(status_code=500, detail=f"Error in DB: {str(e)}")
