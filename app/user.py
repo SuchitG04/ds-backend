@@ -51,5 +51,6 @@ async def update_score(user_id: str, table: str, score: int = 0):
             query,
             (score, user_id),
         )
+        conn.commit()
     except DatabaseError as e:
         raise HTTPException(status_code=500, detail=f"Error in DB: {str(e)}")
