@@ -1,7 +1,7 @@
-from app.user import router as user_router
-from app.quizzes import router as quizzes_router
-from app.vid_content import router as vid_content_router
-from app.database import create_tables, get_db_connection
+from .user import router as user_router
+from .quizzes import router as quizzes_router
+from .vid_content import router as vid_content_router
+from .database import create_tables, get_db_connection
 
 from fastapi import FastAPI
 from contextlib import asynccontextmanager

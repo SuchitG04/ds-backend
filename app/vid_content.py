@@ -1,7 +1,7 @@
 from sqlite3 import DatabaseError
 from fastapi import APIRouter, HTTPException
 import logging
-from app.database import get_db_connection
+from .database import get_db_connection
 
 router = APIRouter()
 
